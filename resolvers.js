@@ -78,6 +78,17 @@ module.exports = {
       }).save();
       return newPost;
     },
+    addPostMessage: async (_, { messageBody, userId, postId }, { Post }) => {
+      const newMessage = {
+        messageBody,
+        messageUser: userId
+      };
+      const post = await Post.findOne({ _id: postId }).then(post => {
+        post.messages.unshift(newMessage);
+        return post.save();
+      })
+      return post;
+    },
     signinUser: async (_, { username, password }, { User }) => {
       const user = await User.findOne({ username });
       if (!user) {
