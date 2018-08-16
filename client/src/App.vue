@@ -271,7 +271,7 @@ h2 {
     transform: translate3d(0, -10px, 0);
   }
   90% {
-    transform: translate3d(0, -4px, 0);
+    transform: translate3d(0, -5px, 0);
   }
 }
 </style>
